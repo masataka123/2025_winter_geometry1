@@ -1,0 +1,158 @@
+\documentclass[dvipdfmx,a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[dvipdfmx]{hyperref} %リンクを有効にする
+\usepackage{url} %同上
+\usepackage{amsmath,amssymb} %もちろん
+\usepackage{amsfonts,amsthm,mathtools} %もちろん
+\usepackage{braket,physics} %あると便利なやつ
+\usepackage{bm} %ラプラシアンで使った
+\usepackage[top=15truemm,bottom=30truemm,left=25truemm,right=25truemm]{geometry} %余白設定
+\usepackage{latexsym} %ごくたまに必要になる
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+\usepackage{otf} %宗教上の理由でmin10が嫌いなので
+\usepackage{showkeys}\renewcommand*{\showkeyslabelformat}[1]{\fbox{\parbox{2cm}{ \normalfont\tiny\sffamily#1\vspace{6mm}}}}
+\usepackage[driverfallback=dvipdfm]{hyperref}
+
+
+\usepackage[all]{xy}
+\usepackage{amsthm,amsmath,amssymb,comment}
+\usepackage{amsmath}    % \UTF{00E6}\UTF{0095}°\UTF{00E5}\UTF{00AD}\UTF{00A6}\UTF{00E7}\UTF{0094}¨
+\usepackage{amssymb}  
+\usepackage{color}
+\usepackage{amscd}
+\usepackage{amsthm}  
+\usepackage{wrapfig}
+\usepackage{comment}	
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{pxrubrica}
+\usepackage{enumitem}
+\usepackage{mathrsfs} 
+
+\setstretch{1.2}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}} 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}} 
+\newcommand{\Sin}{\text{Sin}^{-1}} 
+\newcommand{\Cos}{\text{Cos}^{-1}} 
+\newcommand{\Tan}{\text{Tan}^{-1}} 
+\newcommand{\invsin}{\text{Sin}^{-1}} 
+\newcommand{\invcos}{\text{Cos}^{-1}} 
+\newcommand{\invtan}{\text{Tan}^{-1}} 
+\newcommand{\Area}{\text{Area}}
+\newcommand{\vol}{\text{Vol}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\tiny{#1}}}}
+\newcommand{\sgn}{{\rm sgn}}
+%\newcommand{\rank}{{\rm rank}}
+
+
+
+   %当然のようにやる．
+\allowdisplaybreaks[4]
+   %もちろん．
+%\title{第1回. 多変数の連続写像 (岩井雅崇, 2020/10/06)}
+%\author{岩井雅崇}
+%\date{2020/10/06}
+%ここまで今回の記事関係ない
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins, theorems}
+
+\theoremstyle{definition}
+\newtheorem{thm}{定理}
+\newtheorem{lem}[thm]{補題}
+\newtheorem{prop}[thm]{命題}
+\newtheorem{cor}[thm]{系}
+\newtheorem{claim}[thm]{主張}
+\newtheorem{dfn}[thm]{定義}
+\newtheorem{rem}[thm]{注意}
+\newtheorem{exa}[thm]{例}
+\newtheorem{conj}[thm]{予想}
+\newtheorem{prob}[thm]{問題}
+\newtheorem{rema}[thm]{補足}
+
+\DeclareMathOperator{\Ric}{Ric}
+\DeclareMathOperator{\Vol}{Vol}
+ \newcommand{\pdrv}[2]{\frac{\partial #1}{\partial #2}}
+ \newcommand{\drv}[2]{\frac{d #1}{d#2}}
+  \newcommand{\ppdrv}[3]{\frac{\partial #1}{\partial #2 \partial #3}}
+
+
+%ここから本文．
+\begin{document}
+\pagestyle{empty}
+
+ 
+  \begin{center}
+ {\Large 中間レポート1 提出用紙 }
+% {\Large 演習問題の解答用紙 2024年1月11日(木) } \\
+%\end{center}
+%\vspace{5pt}
+
+{ \large 提出締め切り 2024年11月15日(金) 15時10分00秒 (日本標準時刻)}
+\end{center}
+
+%\vspace{2pt}
+\begin{flushleft}
+{ \large \underline{学籍番号: \hspace{4cm} 名前  \hspace{9cm}   }  }
+\end{flushleft}
+
+\vspace{2pt}
+\begin{flushleft}
+{ \Large 提出方法}
+\end{flushleft}
+\begin{itemize}
+ \setlength{\parskip}{0cm}
+  \setlength{\itemsep}{2pt} 
+  \item 11月15日の授業が始める時にレポートを回収いたします. 
+\item この用紙を表紙にしてホッチキスで左上をとめて提出すること.
+\item 解答に関しては答えのみならず, 答えを導出する過程をきちんと記すこと. 
+\item レポート問題に関してはCLEに解答があるのでそれを活用してよい. ただし意味もなく丸写ししても時間の無駄なので, 使う際はなぜその解答になるのか考えながら活用すること. 
+\end{itemize}
+
+\vspace{5pt}
+\begin{flushleft}
+{\Large レポート問題}
+\end{flushleft}
+\begin{enumerate}[label=\textbf{問題}.\arabic*]
+
+\item (演習問題1.1) $S^{n} := \{ (x_1, x_2, \ldots, x_{n+1}) \in \R^{n+1}| \sum_{i=1}^{n+1} x_{i}^{2} = 1 \}$とおく. 
+$S^n$の座標近傍系を具体的に構成することにより, $S^{n}$は$n$次元の$C^{\infty}$級多様体となることを示せ. なお座標近傍系$(U, \varphi)$に関して$\varphi$が同相であることは示さなくても良い.
+	
+\item (演習問題1.2) $f : \R^{n+1} \rightarrow \R$となる$C^{\infty}$級写像で$f^{-1}(1) = S^{n}$かつ$1 \in \R$が$f$の正則値であるようなものを一つ求めよ. またこれを用いて$S^{n}$は$n$次元の$C^{\infty}$級多様体であることを示せ. 
+ 
+%\item $^{\bullet}$ $f(x,y,z)=x^2 + y^2$, $g(x,y,z) = xyz$について, $df$と$dg$を求めよ.
+
+\item (演習問題2.2) $f(r, \theta) = e^{-r^2} \cos \theta$, $g(x,y,z) = \log (x^2 + y^2 + z^2)$について, $df$と$dg$を求めよ.
+
+\item (演習問題2.3) $(x dx + y dy ) \wedge (-x dx + y dy)$と$(x dx + y dy ) \wedge (-y dx +  x dy)$を計算せよ. 
+
+%\item $^{\bullet}$ $\omega = \sum_{i=1}^{m} f_i dx_i$, $\eta= \sum_{j=1}^{m} g_j dx_j$について, $\omega \wedge \eta$を計算せよ.  
+
+\item (演習問題2.5) $(xdx + y dy) \wedge (ydy + zdz) \wedge (xdx + zdz)$を計算せよ. 
+
+%\item $^{\bullet}$ $d(r \cos \theta) \wedge d(r \sin \theta)$を計算せよ.
+
+%\item $^{\bullet}$ $\omega = dz - y dx$, $\eta = \cos z dx +  \sin z dy$について, $d \omega$と$d \eta$をそれぞれ求めよ. 
+
+\item (演習問題2.7) $\omega = \frac{-y}{x^2 + y^2} dx + \frac{x}{x^2 + y^2} dy$について, $d \omega$を求めよ. 
+
+%\item $^{\bullet}$  $n$変数$C^{\infty}$級関数$f$について$d (df)=0$を(計算によって)示せ.
+
+\item (演習問題2.9) $\varphi(x, y) = (x^m, y^n)$とし, $\eta = \frac{1}{x}dx + dy$とする. 
+$\varphi^{*}\eta$を求めよ. 
+
+\item (演習問題2.10) $\varphi(r, \theta) = (r \cos \theta, r \sin \theta)$とし, $\eta = \frac{-y}{x^2 + y^2} dx + \frac{x}{x^2 + y^2} dy$とする. 
+$\varphi^{*}\eta$を求めよ. 
+
+%\item $^{\bullet}$ $\varphi(x, y) = (x + y^2, 2y)$とし, $\eta = dx \wedge dy$とする. $\varphi^{*}\eta$を求めよ. 
+
+\item (演習問題2.12) $\varphi(r, \theta) = (r \cos \theta, r \sin \theta)$とし, $\eta = \frac{1}{x^2 + y^2} dx \wedge dy$とする. 
+$\varphi^{*}\eta$を求めよ. 
+
+ \end{enumerate}
+
+ \end{document}
