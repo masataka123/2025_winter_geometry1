@@ -1,0 +1,409 @@
+%\documentclass[dvipdfmx,a4paper,12pt]{amsart}
+\documentclass[dvipdfmx,a4paper,11pt]{article} % titleとe-mailをコメントアウトする．
+
+%%% Packages %%%
+\setlength{\lineskip}{0pt}
+
+% --- 和文フォント設定 (ゴシックを使うなら) --- amsartを使う時はコメントアウト
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+\usepackage{otf}          % min10を避けるため
+\usepackage{pxrubrica}    % 和文ルビ
+
+
+% --- 基本パッケージ ---
+\usepackage{graphicx}
+\usepackage[all]{xy}
+\usepackage{wrapfig}
+\usepackage{pgfplots}
+\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{latexsym}
+\usepackage{setspace}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{comment}
+\usepackage[normalem]{ulem} % \emph の下線化を抑止（cancelと共存）
+\usepackage{url}
+
+% --- 数学関連 ---
+\usepackage{amsmath,amssymb,amsthm,amsfonts,mathtools}
+\usepackage{amscd,dsfont,bigdelim,braket,physics,mathrsfs,bm}
+
+% --- 新規追加 ---
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins, theorems}
+
+% --- showkeys（常に表示） ---
+%\usepackage{showkeys}
+%\renewcommand*{\showkeyslabelformat}[1]{%
+ % \fbox{\parbox{1.6cm}{\normalfont\tiny\sffamily#1\vspace{6mm}}}%
+%}
+
+% --- hyperrefは最後に読み込む ---
+\usepackage[dvipdfmx,colorlinks,linkcolor=blue,anchorcolor=blue,citecolor=blue]{hyperref}
+
+%%% レイアウト調整（geometryに統一） %%%
+\usepackage[
+  top=30mm,        % 上余白
+  bottom=30mm,     % 下余白
+  left=25mm,       % 左余白
+  right=25mm,      % 右余白
+  headheight=12pt, % ヘッダー高さ
+  headsep=10mm,    % ヘッダーと本文の間
+  footskip=32pt,   % 本文とフッターの距離
+  includehead,
+  includefoot
+]{geometry}
+
+%%% 行間調整 %%%
+\usepackage{setspace}
+\setstretch{1.1}
+
+% --- 段落設定 ---
+%\setlength{\parskip}{3pt}
+%\setlength{\parindent}{0pt}
+
+
+%%% 追加（重複なし）パッケージ・設定 %%%
+
+% --- 目次の体裁調整 ---
+\usepackage{tocloft}
+\renewcommand{\contentsname}{目次} % 日本語化
+\setlength{\cftbeforesecskip}{0pt}
+\setlength{\cftbeforesubsecskip}{0pt}
+\setlength{\cftbeforesubsubsecskip}{0pt}
+
+% --- セクション見出しの体裁調整 ---
+%\usepackage{titlesec}
+%\titleformat*{\section}{\Large\bfseries}
+%\titleformat*{\subsection}{\large\bfseries}
+%\titlespacing*{\section}{0pt}{1.5ex plus .2ex minus .2ex}{0.8ex plus .1ex}
+%\titlespacing*{\subsection}{0pt}{1.0ex plus .2ex minus .2ex}{0.5ex plus .1ex}
+
+% --- ヘッダー／フッター設定 ---
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\fancyhf{}
+%\rhead{岩井 雅崇}
+%\lhead{大阪大学 数学専攻}
+%\cfoot{\thepage}
+
+
+
+% -- enumerate, itemize行間設定
+\setlist[itemize]{itemsep=3pt, parsep=0pt}
+\setlist[enumerate]{itemsep=3pt, parsep=0pt}
+
+% --- TikZ 設定 ---
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta, fit, calc, backgrounds}
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+% --- footnote がページをまたがない設定 ---
+\interfootnotelinepenalty=10000
+
+% --- 目次に表示する階層の深さ ---
+\setcounter{tocdepth}{2}
+
+% --- 日本語目次---
+\usepackage{pxjahyper}
+
+%%% Theorem 環境 %%%
+\theoremstyle{definition}
+\newtheorem{thm}{定理}
+\newtheorem{lem}[thm]{補題}
+\newtheorem{prop}[thm]{命題}
+\newtheorem{cor}[thm]{系}
+\newtheorem{claim}[thm]{主張}
+\newtheorem{dfn}[thm]{定義}
+\newtheorem{rem}[thm]{注意}
+\newtheorem{exa}[thm]{例}
+\newtheorem{conj}[thm]{予想} % 和文版
+\newtheorem{prob}[thm]{問題}
+\newtheorem{rema}[thm]{補足}
+\newtheorem{dfnthm}[thm]{定義・定理}
+\newtheorem{ques}[thm]{問題}
+\newtheorem{suma}[thm]{まとめ}
+
+%%%%%%定理などを英語で使うとき%%%%%%%%%%%
+\begin{comment}
+\newtheorem{thm}{Theorem}[section] 
+\newtheorem{theo}[thm]{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem*{mainthm}{Theorem}
+\newtheorem{deflem}[thm]{Definition-Lemma}
+\newtheorem{lem}[thm]{Lemma}
+\theoremstyle{definition} 
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{propdefn}[thm]{Proposition-Definition} 
+\newtheorem{lemdefn}[thm]{Lemma-Definition} 
+\newtheorem{thmdefn}[thm]{Theorem-Definition} 
+\newtheorem{eg}[thm]{Example} 
+\newtheorem{ex}[thm]{Example} 
+\newtheorem{exa}[thm]{Example} 
+\newtheorem{ques}[thm]{Question}
+\newtheorem{remin}[thm]{Reminder}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{setup}[thm]{Setup}
+\newtheorem{obs}[thm]{Observation}
+\newtheorem{notation}[thm]{Notation}
+\newtheorem{cl}{Claim}
+\newtheorem{claim}[thm]{Claim}
+\newtheorem{assup}[thm]{Assumption}
+\newtheorem{step}{Step}
+\newtheorem*{clproof}{Proof of Claim}
+\newtheorem{cln}[thm]{Claim}
+\newtheorem*{ack}{Acknowledgements} 
+\numberwithin{equation}{section}
+\newtheorem{case}{Case}
+\end{comment}
+%%%%%%%%%%%%%%%%%
+
+%%% 新規追加コマンド（逆三角関数など） %%%
+\newcommand{\Sin}{\text{Sin}^{-1}} 
+\newcommand{\Cos}{\text{Cos}^{-1}} 
+\newcommand{\Tan}{\text{Tan}^{-1}} 
+\newcommand{\invsin}{\text{Sin}^{-1}} 
+\newcommand{\invcos}{\text{Cos}^{-1}} 
+\newcommand{\invtan}{\text{Tan}^{-1}} 
+\newcommand{\Area}{S}
+\newcommand{\vol}{\text{Vol}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\tiny{#1}}}}
+\newcommand{\sgn}{{\rm sgn}}
+
+%%% 既存のコマンド群（統合済み） %%%
+\newcommand{\rk}[0]{\operatorname{rk}}
+\newcommand{\supp}[0]{\operatorname{Supp}}
+\newcommand{\Rad}[0]{\operatorname{Rad}}
+\newcommand{\Sha}[0]{\operatorname{Sha}}
+\newcommand{\sha}[0]{\operatorname{sha}}
+\newcommand{\eend}[0]{\operatorname{End}}
+\newcommand{\codim}[0]{\operatorname{codim}}
+\newcommand{\nd}[0]{\operatorname{nd}}
+\renewcommand{\rank}[0]{\operatorname{rank}}
+\newcommand{\degree}[0]{\operatorname{deg}}
+\newcommand{\Exc}[0]{\operatorname{Exc}}
+\newcommand{\pr}{{\rm pr}}
+\newcommand{\id}{{\rm id}}
+\newcommand{\Sym}{{\rm Sym}}
+\newcommand{\End}[0]{\operatorname{End}}
+\newcommand{\Coker}[0]{\operatorname{Coker}}
+
+\newcommand{\Supp}{{\rm Supp}}
+\newcommand{\Hom}[0]{\mathscr{H}\!\textit{om}}
+\newcommand{\Ext}[0]{\mathscr{E}\!\textit{xt}}
+\newcommand{\GL}[0]{\operatorname{GL}}
+\newcommand{\SheafHom[1]}{\mathscr{H}\!\!\!\text{\calligra om}_{\,{#1}}}
+\newcommand{\PGL}[0]{\mathbb{P}\GL(r,\C)}
+
+\newcommand{\Alb}{{\rm Alb}}
+\newcommand{\verti}{{\rm vert}}
+\newcommand{\hor}{{\rm hor}}
+\newcommand{\univ}{{\rm univ}}
+\newcommand{\Tor}{{\rm tor}}
+\newcommand{\shaf}{\mathrm{sha}}
+\newcommand{\Shaf}{\mathrm{Sha}}
+\newcommand{\reg}{{\rm{reg}}}
+\newcommand{\sing}{{\rm{sing}}}
+\newcommand{\qt}{{\rm{qt}}}
+\newcommand\sO{{\mathcal O}}
+\newcommand{\Div}[0]{\operatorname{div}}
+\newcommand{\ddbar}{dd^c}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\deldel}{\sqrt{-1}\partial \overline{\partial}}
+\newcommand{\dbar}{\overline{\partial}}
+\newcommand{\I}[1]{\mathcal{I}(#1)}
+\newcommand{\Aut}[1]{\mathrm{Aut}(#1)}
+\newcommand{\Ker}[1]{\mathrm{Ker}(#1)}
+\newcommand{\Image}[1]{\mathrm{Im}(#1)}
+\DeclareMathOperator{\Ric}{Ric}
+\DeclareMathOperator{\Vol}{Vol}
+ \newcommand{\pdrv}[2]{\frac{\partial #1}{\partial #2}}
+ \newcommand{\drv}[2]{\frac{d #1}{d#2}}
+ \newcommand{\ppdrv}[3]{\frac{\partial #1}{\partial #2 \partial #3}}
+\newcommand{\underalign}[2]{\quad \underset{\mathclap{\strut #1}}{#2}\quad}
+\newcommand{\polar}{\beta}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{Z}_+} % --- 旧定義を優先
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\mP}{\mathbb{P}}
+\newcommand{\mO}{\mathcal{O}}
+\newcommand{\B}{\mathds{B}}
+\newcommand{\tl}{\hspace{-0.8ex}<\hspace{-0.8ex}}
+\renewcommand{\tr}{\hspace{-0.8ex}>}
+
+\newcommand{\xb}[1]{\textcolor{blue}{#1}}
+\newcommand{\xr}[1]{\textcolor{red}{#1}}
+\newcommand{\xm}[1]{\textcolor{magenta}{#1}}
+
+\newcommand{\illegible}[1]{\textcolor{red}{[ILLEGIBLE: #1]}}
+
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
+\baselineskip = 15pt
+\footskip = 32pt
+
+
+%\title{2024年度秋冬学期 大阪大学 理学部数学科\\  幾何学1演義 演習問題}
+%\author{岩井雅崇 (大阪大学)}
+%\date{2024年10月4日 \, ver 1.01}
+%ここから本文．
+\begin{document}
+
+%\maketitle
+%\tableofcontents
+%\newpage
+
+%\begin{center}
+%\setcounter{section}{-1}
+%\section{ガイダンス}
+%\label{sec-guide}
+%\end{center}
+
+\begin{center}
+{\Large 2025年度秋冬学期 大阪大学 理学部数学科\\  幾何学1 演義} \\
+金曜4限(15:10-16:40) 理学部E310
+\end{center}
+\begin{flushright}
+ 岩井雅崇(いわいまさたか) \\
+\end{flushright}
+{\Large \underline{基本的事項}}
+\begin{itemize}
+  \setlength{\parskip}{0cm} % 段落間
+  \setlength{\itemsep}{0cm} % 項目間
+\item この授業は\underline{対面授業}です. \underline{金曜4限(15:10-16:40)に理学部E310}にて演習の授業を行います.
+\item \underline{基本的には講義の授業とセットで受講してください.} 演義の授業のみ受講する場合は10月3日の授業後に申し出ること. 
+\item CLEと授業ホームページ(\url{https://masataka123.github.io/2025_winter_geometry1/})にて授業の問題等をアップロードしていきます. 
+QRコードは下にあります.
+\begin{figure}[htbp]
+\begin{center}
+ \includegraphics[height=30mm, width=30mm]{stokes.png}
+ %\caption{授業のQRコード}
+\end{center}
+\end{figure}
+\end{itemize}
+
+\hspace{-18pt}{\Large \underline{成績に関して}}
+
+次の1と2を満たしているものに単位を与えます.
+\begin{enumerate}
+  \setlength{\parskip}{0cm} % 段落間
+  \setlength{\itemsep}{0cm} % 項目間
+\item 幾何学1の講義の単位が可以上である.
+\item 最終授業終了時までに0.1点以上の演習点(後述)を獲得していること.
+\end{enumerate}
+演義の成績は講義の成績と演習点をもとにつけます. なお演義の成績は講義の成績以上になるようにする予定です. 
+%\footnote{理由としては成績がばらけるかどうかが, 現時点では予測が不可能だからです. }
+%演習の成績は”講義の成績”+”演習点”×(点数補正係数)でつける予定です. 点数補正係数は実数かつ全員の成績から定まる係数です.
+
+\medskip
+\hspace{-18pt}{\Large \underline{演習点に関して}}
+
+演習点を稼ぐには次の方法があります.
+\begin{enumerate}
+  \setlength{\parskip}{0cm} 
+  \setlength{\itemsep}{0cm} 
+\item レポートを提出する.  %レポートの出来により$0.1\sim0.5$点の演習点が与えられる.
+\item 配布した演習問題を解き, その解答を黒板を用いて発表する. その場合の演習点は「解いた問題の難易度」と「発表の仕方・解答の方法」などから定まります.
+\end{enumerate}
+
+なお2の方が演習点は高めに設定しております.
+
+
+\medskip
+\hspace{-18pt}{\large \underline{1. レポートに関して}}
+
+11/21と12/12に中間レポートを出します.
+レポート問題は基本的な問題を出します. 
+% レポート問題は演習問題の$^{\bullet}$がついてる問題(後述)の内容から出す予定です.
+%(中間レポートは10-11月に, 期末レポートは12-1月に詳細を言う予定です.)
+
+\newpage
+%\medskip
+
+\hspace{-18pt}{\large \underline{2. 黒板を用いた発表に関して}}
+
+\hspace{-18pt}発表のルールは次のとおりです.
+\begin{itemize}
+  \setlength{\parskip}{0cm} 
+  \setlength{\itemsep}{0cm} 
+\item 問題の解答を黒板に書いて発表してください. 正答だった場合その問題はそれ以降解答できなくなります. %不正解だった場合他の人に解答権が移ります. 
+\item  授業が始まる前にある程度演習問題をあらかじめ解き発表できる状態にしておいてください.
+\item 複数人が解答したい問題があるときは平和的な手段で解答者を決めます.(例えば問題解答数が少ない人を優先するなどです) 特に簡単な問題を一人が独占することのないようにお願いします. 
+\item 発表方法があまりにも悪い場合(教科書丸写しなど)は減点します.
+\item 発表時は教員TA含め全員が発表者の解答を聞いて, 何か質問がある場合はどんどん質問してください. 
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+
+\hspace{-18pt}演習問題に関する注意点
+\begin{itemize}
+  \setlength{\parskip}{0cm} 
+  \setlength{\itemsep}{0cm} 
+\item \underline{演習問題は適当に出しているので, 全部解く必要はないです. } 解けない問題も多くあります.
+\item 演習問題の難易度は一定ではないです. 問題番号の上に$^\bullet$や$^*$などの記号が書いてありますがこれは次を意味します.
+\begin{enumerate}
+  \setlength{\parskip}{0cm} 
+  \setlength{\itemsep}{0cm} 
+\item $^\bullet$がついてる問題は解けないといけない問題です. %演習点は$0.1\sim1.5$点です. ある程度授業を理解している人は他の人に解答を譲ってください.
+\item 何もついてない問題は普通の問題です. ちょっと考えれば解ける範疇に収まっている(はずです). %演習点は$0.5\sim2.5$点です.
+\item $^*$問題や$^{**}$問題は難しそうな問題です. ちょっと難しい問題から激ムズの問題まであります. 私やTAが解けない問題もあります. 基本的に解かせる気はなく自由気ままに出しております. %演習点は$1.5 \sim 7$点です. 
+\end{enumerate}
+難易度が高い問題を解いた場合や解答が素晴らしい場合は演習点を多くもらえます.
+\end{itemize}
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%
+
+\hspace{-18pt}次のご協力をお願いいたします.
+\begin{itemize}
+  \setlength{\parskip}{0cm} 
+  \setlength{\itemsep}{0cm} 
+\item 発表後にCLEに解答をアップロードしてください. 黒板の板書を撮影したものでもいいですし, 自分のノートをアップロードしてもいいです. 
+%スマホ等で黒板にある解答を撮影しても構いません. (ただし黒板のみを撮影してください) %理由としては私の方で解答を用意してないからです. 解答者も撮影のご協力お願いします.
+\item 板書は他人が読めるように, 文字の大きさ・綺麗さ・板書の量に配慮してください. 字は汚くてもいいので, 最低限読めるようにしてください. %(私は文字を綺麗に板書できないので, 相当汚い字でも読むことはできますが…)
+\end{itemize}
+
+
+\medskip
+\hspace{-18pt}{\Large \underline{まとめ}}
+\begin{enumerate}
+  \setlength{\parskip}{0cm} 
+  \setlength{\itemsep}{0cm} 
+\item \underline{単位が欲しい方はレポートを提出し, 講義で可以上を取ってください.} %単位だけ欲しい人は一回も黒板で発表せずにレポートを2回提出してください. さらに位相空間論の講義の試験で可以上をもらってください. それで演義の成績の単位ももらえます. (講義の試験が良ければ演義の成績も良いです.)
+%\item ちょっと欲張りな人は$^\bullet$がついている問題や何もついてない問題を発表してください. なお$^{\bullet}$がついている問題が全て解ければ, 講義の試験の単位は(おそらく)もらえると思います.
+%\item 意欲のある人は難しい問題など色々解いてください. そのほうが私は楽しいです.
+\item 意欲のある人は演習問題を解いていってください. 
+\end{enumerate}
+
+
+
+
+\vspace{11pt}
+\hspace{-18pt}{\Large \underline{休講予定・その他}}
+\begin{itemize}
+  \setlength{\parskip}{0cm} % 段落間
+  \setlength{\itemsep}{0cm} % 項目間
+  \item 講義・演義ともに休講: 2025年12月19日.
+  \item 演義の休講予定: 2025年11月28日. (ただしこの時間に松本先生が授業をする可能性があります.)
+  %(大阪大学で開催する研究集会の世話人のため)  \footnote{他にあるとすれば2024年11月15日です. また授業回数が少ない場合は補講をするかもしれません.} 
+  %\item 休講予定: 2024年1月16日 (休講はほぼ確定) 2023年12月05日または2023年12月12日 (どちらか休講にするかも・未確定)
+    %\item 演習問題と授業内容が噛み合ってない可能性があります.
+    \item 問題のミスがあれば私に言ってください. %ミスはかなりあると思います. 
+  \item 休講情報や演習問題の修正をするので, こまめにホームページを確認してください.
+    \item オフィスアワーを月曜16:00-17:00に設けています. この時間に私の研究室に来ても構いません(ただし来る場合は前もって連絡してくれると助かります.)
+    \item TAさんは演義の時間中に巡回しているので, 自由にご質問して構いません. 
+    %\item $\pi$-base \url{https://topology.jdabbs.com}も活用してください. 
+ \end{itemize}
+ 
+ \end{document}
