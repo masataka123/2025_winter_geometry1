@@ -127,13 +127,13 @@
 ## 解かれていない問題・次回解答予定の問題リスト
 各演習問題は小問もすべて答えて正解となります.  
 
+1. <u>残っている問題: 全て</u>
+
+2. <u>残っている問題: 全て.</u>
+
+3. <u>残っている問題: 全て</u>
 
 <!--
-1. <u>残っている問題: 問.1.4, 1.5, 1.7, 1.9--1.12</u>
-
-2. <u>残っている問題はありません.</u>
-
-3. <u>残っている問題: 問.3.1</u>
 
 4. <u>残っている問題: 問.4.8, 4.11, 4.16--4.18</u>
 
@@ -157,9 +157,9 @@
 
 
 ## 授業日一覧
-- 第1回 (2025/10/03). [ガイダンス資料](https://masataka123.github.io/2025_winter_geometry1/material/0_ガイダンス.pdf)
-- 第2回 (2025/10/10). 
-- 第3回 (2025/10/17). 
+- 第1回 (2025/10/03). [ガイダンス資料](https://masataka123.github.io/2025_winter_geometry1/material/0_ガイダンス.pdf)  [演習問題1](https://masataka123.github.io/2025_winter_geometry1/material/1_Geometry1_prob_20251003.pdf)
+- 第2回 (2025/10/10). [演習問題2](https://masataka123.github.io/2025_winter_geometry1/material/2_Geometry1_prob_20251010.pdf)
+- 第3回 (2025/10/17). [演習問題3](https://masataka123.github.io/2025_winter_geometry1/material/3_Geometry1_prob_20251017.pdf)
 - 第4回 (2025/10/24). 
 - (2025/10/31). 大学祭準備のため休み
 - 第5回 (2025/11/07). 
