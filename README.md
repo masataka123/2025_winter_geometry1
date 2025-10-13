@@ -160,7 +160,7 @@
 - 第1回 (2025/10/03). [ガイダンス資料](https://masataka123.github.io/2025_winter_geometry1/material/0_ガイダンス.pdf)  [演習問題1](https://masataka123.github.io/2025_winter_geometry1/material/1_Geometry1_prob_20251003.pdf)
 - 第2回 (2025/10/10). [演習問題2](https://masataka123.github.io/2025_winter_geometry1/material/2_Geometry1_prob_20251010.pdf)
 - 第3回 (2025/10/17). [演習問題3](https://masataka123.github.io/2025_winter_geometry1/material/3_Geometry1_prob_20251017.pdf)
-- 第4回 (2025/10/24). 
+- 第4回 (2025/10/24). [演習問題3](https://masataka123.github.io/2025_winter_geometry1/material/4_Geometry1_prob_20251024.pdf)
 - (2025/10/31). 大学祭準備のため休み
 - 第5回 (2025/11/07). 
 - 第6回 (2025/11/14). 
