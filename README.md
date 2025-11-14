@@ -166,13 +166,13 @@
 
 
 ## 授業日一覧
-- 第1回 (2025/10/03). [ガイダンス資料](https://masataka123.github.io/2025_winter_geometry1/material/0_ガイダンス.pdf)  [演習問題1](https://masataka123.github.io/2025_winter_geometry1/material/1_Geometry1_prob_20251003.pdf)
-- 第2回 (2025/10/10). [演習問題2](https://masataka123.github.io/2025_winter_geometry1/material/2_Geometry1_prob_20251010.pdf)
-- 第3回 (2025/10/17). [演習問題3](https://masataka123.github.io/2025_winter_geometry1/material/3_Geometry1_prob_20251017.pdf)
-- 第4回 (2025/10/24). [演習問題4](https://masataka123.github.io/2025_winter_geometry1/material/4_Geometry1_prob_20251024.pdf)
+- 第1回 (2025/10/03). [ガイダンス資料](https://masataka123.github.io/2025_winter_geometry1/material/0_ガイダンス.pdf)  [演習問題1](https://masataka123.github.io/2025_winter_geometry1/material/2025-g1-prob-1.pdf)
+- 第2回 (2025/10/10). [演習問題2](https://masataka123.github.io/2025_winter_geometry1/material/2025-g1-prob-2.pdf)
+- 第3回 (2025/10/17). [演習問題3](https://masataka123.github.io/2025_winter_geometry1/material/2025-g1-prob-3.pdf)
+- 第4回 (2025/10/24). [演習問題4](https://masataka123.github.io/2025_winter_geometry1/material/2025-g1-prob-4.pdf)
 - (2025/10/31). 大学祭準備のため休み
-- 第5回 (2025/11/07). [演習問題5](https://masataka123.github.io/2025_winter_geometry1/material/5_Geometry1_prob_20251107.pdf)
-- 第6回 (2025/11/14). 
+- 第5回 (2025/11/07). [演習問題5](https://masataka123.github.io/2025_winter_geometry1/material/5_Geometry2025-g1-prob-5.pdf)
+- 第6回 (2025/11/14). [演習問題6](https://masataka123.github.io/2025_winter_geometry1/material/5_Geometry2025-g1-prob-6.pdf)
 - 第7回 (2025/11/21). [中間レポート1]()
 - (2025/11/28). 演習は休講. ただしこの時間に松本先生が講義を可能性があります. 
 - 第8回 (2025/12/05). 
