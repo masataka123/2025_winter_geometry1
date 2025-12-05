@@ -1,0 +1,500 @@
+\documentclass[dvipdfmx,a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[dvipdfmx]{hyperref} %リンクを有効にする
+\usepackage{url} %同上
+\usepackage{amsmath,amssymb} %もちろん
+\usepackage{amsfonts,amsthm,mathtools} %もちろん
+\usepackage{braket,physics} %あると便利なやつ
+\usepackage{bm} %ラプラシアンで使った
+\usepackage[top=15truemm,bottom=30truemm,left=25truemm,right=25truemm]{geometry} %余白設定
+\usepackage{latexsym} %ごくたまに必要になる
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+\usepackage{otf} %宗教上の理由でmin10が嫌いなので
+\usepackage{showkeys}\renewcommand*{\showkeyslabelformat}[1]{\fbox{\parbox{2cm}{ \normalfont\tiny\sffamily#1\vspace{6mm}}}}
+\usepackage[driverfallback=dvipdfm]{hyperref}
+
+
+\usepackage[all]{xy}
+\usepackage{amsthm,amsmath,amssymb,comment}
+\usepackage{amsmath}    % \UTF{00E6}\UTF{0095}°\UTF{00E5}\UTF{00AD}\UTF{00A6}\UTF{00E7}\UTF{0094}¨
+\usepackage{amssymb}  
+\usepackage{color}
+\usepackage{amscd}
+\usepackage{amsthm}  
+\usepackage{wrapfig}
+\usepackage{comment}	
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{pxrubrica}
+\usepackage{enumitem}
+\usepackage{mathrsfs} 
+
+\setstretch{1.2}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}} 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}} 
+\newcommand{\Sin}{\text{Sin}^{-1}} 
+\newcommand{\Cos}{\text{Cos}^{-1}} 
+\newcommand{\Tan}{\text{Tan}^{-1}} 
+\newcommand{\invsin}{\text{Sin}^{-1}} 
+\newcommand{\invcos}{\text{Cos}^{-1}} 
+\newcommand{\invtan}{\text{Tan}^{-1}} 
+\newcommand{\Area}{\text{Area}}
+\newcommand{\vol}{\text{Vol}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\tiny{#1}}}}
+\newcommand{\sgn}{{\rm sgn}}
+%\newcommand{\rank}{{\rm rank}}
+
+
+
+   %当然のようにやる．
+\allowdisplaybreaks[4]
+   %もちろん．
+%\title{第1回. 多変数の連続写像 (岩井雅崇, 2020/10/06)}
+%\author{岩井雅崇}
+%\date{2020/10/06}
+%ここまで今回の記事関係ない
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins, theorems}
+
+\theoremstyle{definition}
+\newtheorem{thm}{定理}
+\newtheorem{lem}[thm]{補題}
+\newtheorem{prop}[thm]{命題}
+\newtheorem{cor}[thm]{系}
+\newtheorem{claim}[thm]{主張}
+\newtheorem{dfn}[thm]{定義}
+\newtheorem{rem}[thm]{注意}
+\newtheorem{exa}[thm]{例}
+\newtheorem{conj}[thm]{予想}
+\newtheorem{prob}[thm]{問題}
+\newtheorem{rema}[thm]{補足}
+
+\DeclareMathOperator{\Ric}{Ric}
+\DeclareMathOperator{\Vol}{Vol}
+ \newcommand{\pdrv}[2]{\frac{\partial #1}{\partial #2}}
+ \newcommand{\drv}[2]{\frac{d #1}{d#2}}
+  \newcommand{\ppdrv}[3]{\frac{\partial #1}{\partial #2 \partial #3}}
+
+
+%ここから本文．
+\begin{document}
+\pagestyle{empty}
+
+ 
+  \begin{center}
+ {\Large 中間レポート1 解答}
+ \end{center}
+\begin{enumerate}[label=\textbf{問題}\arabic*.]
+
+\item 次の問いに答えよ. ただし$m$を1以上の整数とする. 
+\begin{enumerate}[label=(\arabic*)]
+ \setlength{\parskip}{0cm}
+  \setlength{\itemsep}{0pt} 
+\item 位相空間$M$がハウスドルフであることの定義を述べよ.
+\item $M$をハウスドルフ空間とする. $M$のチャート(局所座標近傍)と$C^{\infty}$級アトラス(局所座標近傍系)の定義を述べよ. \footnote{この問題は松本先生の試験問題で実際に出た問題. \url{http://www4.math.sci.osaka-u.ac.jp/~matsumoto/courses/2023-g1/}}
+%\item $M$をハウスドルフ空間とする. $M$が$C^{\infty}$級$m$次元多様体であることの定義を述べよ.
+\end{enumerate}
+
+(答)
+
+(1). 位相空間$M$がハウスドルフであるとは, 任意の$x, y \in M$で$x \neq y$ならば, ある$M$の開集合$U, V$で
+$x\in U$, $y \in V$, $U \cap V = \varnothing$となるものが存在すること. 
+
+(2). 多様体の基礎 定義6.I, 6.IV参照. 
+
+[チャート(局所座標近傍)] \(M\) の開集合 \(U\) から，\(m\) 次元実数空間 \(\R^m\) のある開集合 \(V\) への同相写像
+\[
+\varphi : U \to V
+\]
+があるとき，\(U\) と \(\varphi\) の対 \((U,\varphi)\) を \(m\) 次元座標近傍という. 
+
+[$C^{\infty}$級アトラス(局所座標近傍系)]  \(M\) の \(C^\infty\) 級アトラスとは，\(\{(U_\lambda,\varphi_\lambda)\}_{\lambda\in\Lambda}\) という族であって，（ある非負整数 \(m\) について）次の性質をみたすようなもののことである．
+\begin{itemize}
+  \item[(i)] \(\{U_\lambda\}_{\lambda\in\Lambda}\) は \(M\) の開被覆である．（つまり，各 \(U_\lambda\) は \(M\) の開集合で \(\displaystyle \bigcup_{\lambda\in\Lambda} U_\lambda = M\)．）
+  \item[(ii)] 各 \(\varphi_\lambda\) は \(U_\lambda\) から \(\mathbb{R}^m\) の開集合 \(V_\lambda\) への同相写像である．
+  \item[(iii)] \(U_\lambda \cap U_\mu \neq \emptyset\) をみたす任意の \(\lambda,\mu \in \Lambda\) に対して，
+  \[
+    \varphi_\mu \circ \varphi_\lambda^{-1} : \varphi_\lambda(U_\lambda \cap U_\mu) \longrightarrow \varphi_\mu(U_\lambda \cap U_\mu)
+  \]
+  は \(C^\infty\) 級写像である．
+\end{itemize}
+
+\item 次の問いに答えよ. ただし$m$を1以上の整数,  $M$を$C^{\infty}$級$m$次元多様体, $p \in M$とする. 
+%なお定義に関しては原則的に"松本幸夫著 多様体の基礎 (東京大学出版会)"のものを採用する. 
+\begin{enumerate}[label=(\arabic*)]
+ \setlength{\parskip}{0cm}
+  \setlength{\itemsep}{0pt} 
+\item 接ベクトル空間$T_{p}M $の定義を述べよ. なお"多様体の基礎"では複数の定義の仕方があるが, どれを答えても正解とする. 
+ \item 余接ベクトル空間$T_{p}^{*}M $の定義を述べよ. ただしその際に"ベクトル空間の双対空間”の定義もきちんと述べること. 
+ \item 多様体上の \(C^\infty\) 級微分形式とは何か. 定義を説明せよ. \footnote{この問題は松本先生の中間レポートにあった問題. }
+\end{enumerate}
+
+(1). 多様体の基礎8章参照. 答えは2つ以上ある.\footnote{本当は曲線に関する微分を入れるべきだが省略した． }
+
+[1つ目 方向微分を使った特徴づけ]
+
+点 \(p \in M\) における方向微分 \(v\) とは，\(p\) の開近傍で定義された \(C^\infty\) 級関数 \(f\) に実数 \(v(f)\) を対応させる操作であって， 次の (0)(1)(2) の性質をもつものである．
+\begin{enumerate}
+\item[(0)] \(f\) と \(g\) が点 \(p\) の十分小さな開近傍上で一致すれば，\(v(f)=v(g)\)．
+\item[(1)] \(v(af+bg)=av(f)+bv(g)\)． ここで \(a,b\in\mathbb{R}\) であり，\(f,g\) は \(p\) の開近傍で定義された任意の \(C^\infty\) 級関数．
+\item[(2)] \(v(fg)=v(f)g(p)+f(p)v(g)\)．
+\end{enumerate}
+ 接ベクトル空間$T_{p}M $を, 点 \(p \in M\) における方向微分 \(v\)からなる集合とする. (これは$\R$ベクトル空間の構造を持つ.)
+
+[2つ目 座標を使った特徴づけ]
+
+点 \(p \in M\) について, 座標近傍\((U,\varphi)\) で$p \in U$となるものを一つとる. すると$\varphi(U) \subset \R^m$なので
+\[
+\varphi(p) = (x_1,x_2,\dots,x_m)
+\]
+と書ける. この\((x_1,x_2,\dots,x_m)\) を\((U,\varphi)\) に関する \(p\) の局所座標という．
+
+　\(p\) を含む座標近傍 \((U; x_1, x_2, \dots, x_m)\) について, 
+\(p\) のまわりで定義された \(C^\infty\) 級関数 \(f\) に，\(p\) における \(x_i\) 方向の偏微分係数
+\[
+\frac{\partial f}{\partial x_i}(p)\in\mathbf{R}
+\]
+を対応させる操作を \(\left(\dfrac{\partial}{\partial x_i}\right)_p\) とする.
+この\(m\) 個のベクトル \(\left(\dfrac{\partial}{\partial x_1}\right)_p,\left(\dfrac{\partial}{\partial x_2}\right)_p,\dots,\left(\dfrac{\partial}{\partial x_m}\right)_p\) の張る$\R$ベクトル空間を, 点 \(p\) における \(M\) の接ベクトル空間という. 
+
+(注意) 実は$C^{r}$級多様体について, $r \neq \infty$ならば1つ目の定義と2つ目の定義は一致しない. 
+(多様体の基礎 付録A参照) よって2つ目の定義が正しいものである. 
+$C^{\infty}$級多様体に関しては1つ目の定義と2つ目の定義は一致するので, どちらを答えても良い.
+
+(2). 多様体の基礎18章参照. 
+
+(答). \(\mathbb{R}\) 上の \(m\) 次元ベクトル空間\(V\) について, その双対空間\(V^{*}\) を\(V\) から \(\mathbb{R}\) への線型写像 \(\omega:V\to\mathbb{R}\) のなす集合とする. 
+ この空間\(V^{*}\) もまた$\R$ベクトル空間になる.
+ 
+ 　\(T_p(M)\) の双対空間 \(T_p(M)^*\) のことを， 多様体 \(M\) の点 \(p\) における余接ベクトル空間とよび，\(T_p^*(M)\) と表わす．
+
+(3). 松本先生の過去の中間レポートの答え参照. 
+
+(答). \(M\) を多様体とする．\(M\) 上の \(C^\infty\)級微分 \(0\)形式とは 単なる$C^\infty$関数 \(M \to \mathbb{R}\) のこととする. 
+以下 \(k \geq 1\) について \(C^\infty\)級微分\(k\)形式を定義する．
+
+任意の \(p \in M\) に対し， 接ベクトル空間 \(T_pM\) 上の交代的な \(k\) 重線形形式全体のなす空間を 
+\(\bigwedge^k T_p^*M\) と書く．
+微分\(k\)形式とは, 写像
+\[
+\omega : M \longrightarrow \prod_{p\in M} T_p^*M
+\]
+であって， 任意の \(p \in M\) に対し，\(\omega(p)\)が \(T_p^*M\) の元になっているようなもののことである．
+(以下\(\omega(p)\)を\(\omega_p\) と書く.)
+
+微分\(k\)形式 \(\omega\) が $C^\infty$級であることを以下のように定義する. 
+\(M\) のチャート \((U; x^1, \ldots, x^n)\) について, 局所座標を用いて \(U\) 上で \(\omega\) を
+\[
+\omega|_U = \sum_{i_1<\cdots<i_k} f_{i_1\cdots i_k}\, dx^{i_1} \wedge \cdots \wedge dx^{i_k}
+\]
+という形に一意的に表すことができる．
+任意のチャート \((U; x^1, \ldots, x^n)\) に対し，この表示に現れるすべての関数 \(f_{i_1\cdots i_k}\) が \(U\) 上で, $C^\infty$級であるとき，\(\omega\) は $C^\infty$級であると言う．
+
+
+\item $S^{2} := \{ (x, y,z) \in \R^{3}| x^2 + y^2 + z^2 = 1 \}$とおく. 
+次の問いに答えよ. ただし$\R^3$にはユークリッド位相を入れて, $S^2$には$\R^3$の相対位相を入れる. 
+\begin{enumerate}[label=(\arabic*)]
+ \setlength{\parskip}{0cm}
+  \setlength{\itemsep}{0pt} 
+\item $S^{2}$がハウスドルフであることを示せ. 
+\item $S^2$の$C^{\infty}$級アトラス(局所座標近傍系)$\{(U_{\lambda}, \varphi_{\lambda}) \}_{\lambda \in \Lambda}$を具体的に構成せよ.  \footnote{基本的には2枚か6枚の（局所）座標近傍(チャート)で$S^2$を覆うものがあるが, どちらを答えてもよい.}
+%\item $S^2$の$C^{\infty}$級（局所）座標近傍系(アトラス)$\{(U_{\lambda}, \varphi_{\lambda}) \}_{\lambda \in \Lambda}$で$|\Lambda|=6$であるものを一つあげよ. \footnote{ようは6枚の（局所）座標近傍(チャート)で$S^2$を覆うものを求めてください.}
+%\item $S^2$の$C^{\infty}$級（局所）座標近傍系(アトラス)$\{(U_{\lambda}, \varphi_{\lambda}) \}_{\lambda \in \Lambda}$で$|\Lambda|=2$であるものを一つあげよ.
+\end{enumerate} 
+
+(答).
+
+(1). $\mathbb{R}^{3}$は距離空間なのでハウスドルフ. 
+また$S^{2}\hookrightarrow \mathbb{R}^{3}$ は連続単射である. 
+よって$S^{2}$はハウスドルフである．
+
+(補足)
+空でない位相空間の連続な単射$f :X \to Y$について, $Y$がハウスドルフならば$X$もハウスドルフである. 
+
+[証明.] $a, b \in X$かつ$a \neq b$とする. $f$は単射なので$f(a) \neq f(b)$. $Y$はハウスドルフなので
+$Y$の開集合$U, V$で$f(a) \in U$, $f(b) \in V$, $U \cap V=\varnothing$となるものがある. 
+$f$は連続なので$f^{-1}(U), f^{-1}(V)$は$X$の開集合であり
+$a \in f^{-1}(U)$, $b \in f^{-1}(V)$, $f^{-1}(U) \cap f^{-1}(V)=\varnothing$となる. よって$X$はハウスドルフ. \qed
+
+(2). 答えは二つある. 多様体の基礎6章の例2,4参照. 
+
+[2枚のチャート]
+
+\begin{itemize}
+\item
+$U_N := S^2 \setminus \{(0,0,1)\}$とし
+\[
+\varphi_N : U_N \to \mathbb{R}^2
+\quad
+\varphi_N(x,y,z)=\left(\frac{x}{1-z},\frac{y}{1-z}\right)
+\]
+とする. 
+(感じとしては, 北極 \((0,0,1)\) から \(xy\) 平面へのステレオ投影)
+また$\varphi_N : U_N \to \varphi_N (U_N)$は同相写像になる. 
+これは$\varphi_N $の逆写像が
+$$
+\varphi_N^{-1}: \varphi_N (U_N) \to U_N
+\quad
+(u,v) \mapsto \left(\frac{2u}{1 + u^2 + v^2}, \frac{2v}{1 + u^2 + v^2}, \frac{u^2 + v^2 -1}{1 + u^2 + v^2}\right)
+$$
+という連続写像で与えられるからである. 
+
+\item 
+\(
+U_S := S^2 \setminus \{(0,0,-1)\}
+\)とし, 
+\[
+\varphi_S : U_S \to \mathbb{R}^2
+\quad 
+\varphi_S(x,y,z)=\left(\frac{x}{1+z},\frac{y}{1+z}\right)
+\]
+とする. 
+(感じとしては, 南極 \((0,0,1)\) から \(xy\) 平面へのステレオ投影)
+上と同様に$\varphi_S : U_SD \to \varphi_N (U_N)$は同相写像になる. 
+\end{itemize}
+
+$\{ (U_N,\varphi_N)\), \((U_S,\varphi_S)\}$は$C^{\infty}$級アトラスになる. 
+これはアトラスの条件を示していけば良い. 
+\begin{itemize}
+  \item[(i)] $S^2 =U_N \cup U_S$である. 
+  \item[(ii)] 上に述べた通り. 
+  \item[(iii)] \(U_N\cap U_S\) について
+  \[
+\varphi_S\circ\varphi_N^{-1} : 
+ \varphi_N(U_N\cap U_S)
+  \longrightarrow \varphi_S(U_N\cap U_S) 
+\]
+を計算する. 
+$(u,v) \in  \varphi_N(U_N\cap U_S) = \R^2 \setminus \{ (0,0)\}$について, 
+$$
+\varphi_S \circ \varphi_N^{-1} (u,v)
+=\varphi_S \left(\frac{2u}{1 + u^2 + v^2}, \frac{2v}{1 + u^2 + v^2}, \frac{u^2 + v^2 -1}{1 + u^2 + v^2}\right)
+=\left(\frac{u}{u^2 + v^2}, \frac{v}{u^2 + v^2} \right)
+$$
+となる. $(u,v) \neq (0,0)$なので$\varphi_S \circ \varphi_N^{-1}$は$\varphi_N(U_N\cap U_S) $上で$C^{\infty}$級である. 
+$ \varphi_N \circ \varphi_{S}^{-1}$も同様である. 
+\end{itemize}
+
+
+[6枚のチャート]
+\begin{itemize}
+\item $U_{x}^{+}=\{(x,y,z)\in S^{2}\mid x>0\},  U_{x}^{-}=\{(x,y,z)\in S^{2}\mid x<0\}$
+とし, 
+$$
+\varphi_{x}^{+}\colon U_{x}^{+}\longrightarrow \varphi_{x}^{+}(U_{x}^{+}) \subset \mathbb{R}^{2},\qquad
+(x,y,z)\longmapsto (y,z)
+$$
+$$
+\varphi_{x}^{-}\colon U_{x}^{-}\longrightarrow \varphi_{x}^{-}(U_{x}^{-}) \subset \mathbb{R}^{2}\qquad
+(x,y,z)\longmapsto (y,z)
+$$
+とする. 
+これら$\varphi_{x}^{+}\colon U_{x}^{+}\longrightarrow \varphi_{x}^{+}(U_{x}^{+}) $は同相写像になる. 
+これは$\varphi_{x}^{+}$の逆写像が
+$$
+{\varphi_{x}^{+}}^{-1}: \varphi_{x}^{+}(U_{x}^{+}) \to U_{x}^{+}
+\quad
+(u,v) \mapsto (\sqrt{1 - u^2 - v^2}, u, v)
+$$
+という連続写像で与えられるからである. 
+$\varphi_{x}^{-}$も同じ. 
+
+\item $U_{y}^{+}=\{(x,y,z)\in S^{2}\mid y>0\},  U_{y}^{-}=\{(x,y,z)\in S^{2}\mid y<0\}$
+とし, 
+$$
+\varphi_{y}^{+}\colon U_{y}^{+}\longrightarrow \varphi_{y}^{+}(U_{y}^{+})  \subset \mathbb{R}^{2},\qquad
+(x,y,z)\longmapsto (x,z)
+$$
+$$
+\varphi_{y}^{-}\colon U_{y}^{-}\longrightarrow \varphi_{y}^{-}(U_{y}^{-}) \subset  \mathbb{R}^{2},\qquad
+(x,y,z)\longmapsto (x,z)
+$$
+とする. これらは上と同じく同相写像になる. 
+%$\varphi_{y}^{+}\colon U_{y}^{+}\longrightarrow \varphi_{y}^{+}(U_{y}^{+}) $は同相写像になる. 
+%これは$\varphi_{y}^{+}$の逆写像が$$\varphi_{y}^{+}: \varphi_{y}^{+}(U_{y}^{+}) \to U_{y}^{+}\quad(u,v) \mapsto (u, \sqrt{1 - u^2 - v^2}, v)$$という連続写像で与えられるからである. $\varphi_{y}^{-}$も同じ. 
+\item $U_{z}^{+}=\{(x,y,z)\in S^{2}\mid z>0\},  U_{z}^{-}=\{(x,y,z)\in S^{2}\mid z<0\}$
+とし
+$$
+\varphi_{z}^{+}\colon U_{z}^{+}\longrightarrow  \varphi_{z}^{+}(U_{z}^{+})  \subset \mathbb{R}^{2}\qquad
+(x,y,z)\longmapsto (x, y)
+$$
+$$
+\varphi_{z}^{-}\colon U_{z}^{-}\longrightarrow \varphi_{z}^{-}(U_{z}^{-}) \subset  \mathbb{R}^{2},\qquad
+(x,y,z)\longmapsto (x, y)
+$$
+とする. 
+これらは上と同じく同相写像になる. 
+\end{itemize}
+
+上の6つを合わせた
+\(
+\{(U_{x}^{+},\varphi_{x}^{+}),\ldots,(U_{z}^{-},\varphi_{z}^{-})\}
+\)
+が \(C^{\infty}\) アトラスになる．
+これはアトラスの条件を示していけば良い. 
+\begin{itemize}
+  \item[(i)] $S^2 =U_{x}^{+} \cup \cdots \cup U_{z}^{-}$である. これは任意の$(x, y, z) \in S^2$について
+  $x=y=z=0$となることはない. 例えば$x \neq 0$とすると, $(x, y, z) \in U_{x}^{+} \cup U_{x}^{-}$となる.
+  $y \neq 0, z \neq 0$の場合も同様.  
+  \item[(ii)] 上に述べた通り. 
+  \item[(iii)] \(U_{x}^{+} \cap U_{y}^{+} \) について
+ \[
+\varphi_{y}^{+}\circ { \varphi_{x}^{+}}^{-1}:
+\varphi_{x}^{+}(U_{x}^{+}\cap U_{y}^{+})
+\rightarrow 
+\varphi_{y}^{+}(U_{x}^{+}\cap U_{y}^{+})
+\]
+を計算する. 
+$(u,v) \in  \varphi_{x}^{+}(U_{x}^{+}\cap U_{y}^{+})= \{ (s, t) \in \R^2 \mid s^2 +t^2 <1, s>0\}$について, 
+$$
+\varphi_{y}^{+}\circ { \varphi_{x}^{+}}^{-1}(u,v)
+=\varphi_{y}^{+}(\sqrt{1-u^2-v^2}, u, v)
+=(\sqrt{1-u^2-v^2}, v)
+$$
+となる. $1-u^2-v^2>0$なので$\varphi_{y}^{+}\circ { \varphi_{x}^{+}}^{-1}$は
+$\varphi_{x}^{+}(U_{x}^{+}\cap U_{y}^{+})$上で$C^{\infty}$級である. 
+他も同様. \footnote{6枚のチャートの場合は流石に全てチェックしなくても許されると思います. }
+\end{itemize}
+
+
+%$S^n$の座標近傍系を具体的に構成することにより, $S^{n}$は$n$次元の$C^{\infty}$級多様体となることを示せ. なお座標近傍系$(U, \varphi)$に関して$\varphi$が同相であることは示さなくても良い.
+	
+%\item (演習問題1.2) $f : \R^{n+1} \rightarrow \R$となる$C^{\infty}$級写像で$f^{-1}(1) = S^{n}$かつ$1 \in \R$が$f$の正則値であるようなものを一つ求めよ. またこれを用いて$S^{n}$は$n$次元の$C^{\infty}$級多様体であることを示せ. 
+ 
+ \item 次の計算をせよ.
+\begin{enumerate}[label=(\arabic*)]
+ \setlength{\parskip}{0cm}
+  \setlength{\itemsep}{0pt} 
+%\item $^{\bullet}$ $f(x,y,z)=x^2 + y^2$, $g(x,y,z) = xyz$について, $df$と$dg$を求めよ.\item  $f(r, \theta) = e^{-r^2} \cos \theta$, 
+\item $(x dx + y dy ) \wedge (-y dx +  x dy)$を求めよ.
+%\item $(x dx + y dy ) \wedge (-x dx + y dy)$と$(x dx + y dy ) \wedge (-y dx +  x dy)$を求めよ.
+
+%\item $^{\bullet}$ $\omega = \sum_{i=1}^{m} f_i dx_i$, $\eta= \sum_{j=1}^{m} g_j dx_j$について, $\omega \wedge \eta$を計算せよ.  
+
+\item  $(xdx + y dy) \wedge (ydy + zdz) \wedge (xdx + zdz)$を求めよ.
+
+
+%\item $^{\bullet}$ $d(r \cos \theta) \wedge d(r \sin \theta)$を計算せよ.
+
+%\item $^{\bullet}$ $\omega = dz - y dx$, $\eta = \cos z dx +  \sin z dy$について, $d \omega$と$d \eta$をそれぞれ求めよ. 
+
+\item $f(x,y,z) = \log (x^2 + y^2 + z^2)$について, $df$を求めよ.
+
+\item $\omega = \frac{-y}{x^2 + y^2} dx + \frac{x}{x^2 + y^2} dy$について, $d \omega$を求めよ. 
+
+%\item $^{\bullet}$  $n$変数$C^{\infty}$級関数$f$について$d (df)=0$を(計算によって)示せ.
+
+\item $\varphi(x, y) = (x^m, y^n)$とし, $\eta = \frac{1}{x}dx + dy$とする. 
+$\varphi^{*}\eta$を求めよ. 
+
+\item $\varphi(r, \theta) = (r \cos \theta, r \sin \theta)$とし, $\eta = \frac{-y}{x^2 + y^2} dx + \frac{x}{x^2 + y^2} dy$とする. 
+$\varphi^{*}\eta$を求めよ. 
+
+%\item $^{\bullet}$ $\varphi(x, y) = (x + y^2, 2y)$とし, $\eta = dx \wedge dy$とする. $\varphi^{*}\eta$を求めよ. 
+
+\item $\varphi(r, \theta) = (r \cos \theta, r \sin \theta)$とし, $\eta = \frac{1}{x^2 + y^2} dx \wedge dy$とする. 
+$\varphi^{*}\eta$を求めよ. 
+\end{enumerate}
+
+(答)
+ 
+(1).
+ $$
+(x\,dx + y\,dy)\wedge(-y\,dx + x\,dy)
+= y\,dy\wedge(-y\,dx) + x\,dx\wedge(x\,dy) 
+= (x^{2}+y^{2})\,dx\wedge dy
+$$
+計算には$dx\wedge dx = 0,\ dy\wedge dy = 0$を使った.
+
+(2).
+\begin{align*}
+\ (x\,dx + y\,dy)\wedge(y\,dy + z\,dz)\wedge(x\,dx + z\,dz)
+&= x y z\,dx\wedge dy\wedge dz 
+  + y z x\,dy\wedge dz\wedge dx\\
+&= 2 x y z\,dx\wedge dy\wedge dz.
+\end{align*}
+% (3)
+
+(3).
+\begin{align*}
+df
+= \frac{\partial f}{\partial x}\,dx
+  + \frac{\partial f}{\partial y}\,dy
+  + \frac{\partial f}{\partial z}\,dz
+= \frac{2x\,dx + 2y\,dy + 2z\,dz}{x^{2}+y^{2}+z^{2}}.
+\end{align*}
+% (4)
+
+(4).
+\begin{align*}
+dw
+&= \frac{\partial}{\partial y}\!\left(\frac{y}{x^{2}+y^{2}}\right) dy\wedge dx
+  + \frac{\partial}{\partial x}\!\left(\frac{x}{x^{2}+y^{2}}\right) dx\wedge dy \\
+&= \frac{-(x^{2}+y^{2}) + y(2y)}{(x^{2}+y^{2})^{2}}\,dy\wedge dx 
+  + \frac{x^{2}+y^{2} - x(2x)}{(x^{2}+y^{2})^{2}}\,dx\wedge dy \\
+&= \frac{x^{2}-y^{2}-x^{2}+y^{2}}{(x^{2}+y^{2})^{2}}\,dx\wedge dy \\
+&= 0.
+\end{align*}
+% (4)
+
+(5).
+\begin{align*}
+% (5)
+\varphi^{*}\eta
+= \frac{1}{x^{m}}\frac{\partial(x^{m})}{\partial x}\,dx
+  + \frac{\partial(y^{n})}{\partial y}\,dy 
+ = \frac{m}{x}\,dx + n y^{\,n-1}\,dy.
+\end{align*}
+% (4)
+
+(6).
+\begin{align*}
+% (6)（極座標変換 \(\varphi(r,\theta)=(r\cos\theta,r\sin\theta)\)）
+\varphi^{*}\eta
+&= \frac{-r\sin\theta}{(r\cos\theta)^{2}+(r\sin\theta)^{2}}
+   \left(
+     \frac{\partial(r\cos\theta)}{\partial r}\,dr
+     + \frac{\partial(r\cos\theta)}{\partial\theta}\,d\theta
+   \right) \\ 
+&\qquad
+ + \frac{r\cos\theta}{(r\cos\theta)^{2}+(r\sin\theta)^{2}}
+   \left(
+     \frac{\partial(r\sin\theta)}{\partial r}\,dr
+     + \frac{\partial(r\sin\theta)}{\partial\theta}\,d\theta
+   \right) \\
+&= -\frac{\sin\theta}{r}\bigl(\cos\theta\,dr - r\sin\theta\,d\theta\bigr)
+  + \frac{\cos\theta}{r}\bigl(\sin\theta\,dr + r\cos\theta\,d\theta\bigr) \\
+&= d\theta.
+\end{align*}
+% (4)
+
+(7).
+\begin{align*}
+% (7)（2-形式の引き戻し）
+\varphi^{*}\eta
+&= \frac{1}{(r\cos\theta)^{2} + (r\sin\theta)^{2}}
+   \left(
+     \frac{\partial(r\cos\theta)}{\partial r}\,dr
+     + \frac{\partial(r\cos\theta)}{\partial\theta}\,d\theta
+   \right)
+   \wedge
+   \left(
+     \frac{\partial(r\sin\theta)}{\partial r}\,dr
+     + \frac{\partial(r\sin\theta)}{\partial\theta}\,d\theta
+   \right) \\
+&= \frac{1}{r^{2}}
+   \bigl(\cos\theta\,dr - r\sin\theta\,d\theta\bigr)
+   \wedge
+   \bigl(\sin\theta\,dr + r\cos\theta\,d\theta\bigr) \\
+&= \frac{r(\cos^{2}\theta + \sin^{2}\theta)}{r^{2}}\,dr\wedge d\theta \\
+&= \frac{1}{r}\,dr\wedge d\theta.
+\end{align*}
+
+ \end{enumerate}
+
+ \end{document}
