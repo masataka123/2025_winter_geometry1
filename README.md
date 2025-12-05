@@ -34,11 +34,11 @@
 
 ## 中間レポート1 
 
-2025/11/21に[中間レポート1](https://masataka123.github.io/2025_winter_geometry1/material/1_中間レポート_20251121.pdf)を配布しました. 
+2025/11/21に[中間レポート1](https://masataka123.github.io/2025_winter_geometry1/material/1_report_20251121.pdf)を配布しました. 
 2025/12/12締切です. 
 詳しくはCLEを参照してください. 
 
-[中間レポート1の解答](https://masataka123.github.io/2025_winter_geometry1/material/1_中間レポート_20251121_解答.pdf) 
+[中間レポート1の解答](https://masataka123.github.io/2025_winter_geometry1/material/1_report_20251121_solution.pdf) 
 
 <!--
 
@@ -173,7 +173,7 @@
 - (2025/10/31). 大学祭準備のため休み
 - 第5回 (2025/11/07). [演習問題5](https://masataka123.github.io/2025_winter_geometry1/material/2025-g1-prob-5.pdf)
 - 第6回 (2025/11/14). [演習問題6](https://masataka123.github.io/2025_winter_geometry1/material/2025-g1-prob-6.pdf)
-- 第7回 (2025/11/21). [中間レポート1](https://masataka123.github.io/2025_winter_geometry1/material/1_中間レポート_20251121.pdf) [演習問題7](https://masataka123.github.io/2025_winter_geometry1/material/2025-g1-prob-7.pdf)
+- 第7回 (2025/11/21). [中間レポート1](https://masataka123.github.io/2025_winter_geometry1/material/1_report_20251121.pdf) [演習問題7](https://masataka123.github.io/2025_winter_geometry1/material/2025-g1-prob-7.pdf)
 - (2025/11/28). 演習は休講. ただしこの時間に松本先生が講義を可能性があります. [演習問題8](https://masataka123.github.io/2025_winter_geometry1/material/2025-g1-prob-8.pdf)
 - 第8回 (2025/12/05). [演習問題9](https://masataka123.github.io/2025_winter_geometry1/material/2025-g1-prob-9.pdf)
 - 第9回 (2025/12/12). 中間レポート1締切. 
